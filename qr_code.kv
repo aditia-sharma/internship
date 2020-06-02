@@ -1,0 +1,14 @@
+#:import QRCodeWidget kivy_garden.qrcode
+<BoxLayout>:
+
+    orientation: "vertical"
+    padding: 20
+
+    QRCodeWidget:
+        id: qr
+        data: 'Table1'
+
+    Button:
+        text: 'Press to change QRcode'
+        on_release: qr.data = "Table2"
+        size_hint: [1,1]

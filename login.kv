@@ -1,0 +1,56 @@
+#:include connected.kv
+
+<Login>:
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        Label:
+            text: 'Sign In'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'Unique Id'
+                font_size: 18
+                halign: 'left'
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 28
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Password'
+                halign: 'left'
+                font_size: 18
+                text_size: root.width-20, 20
+
+            TextInput:
+                id: password
+                size_hint: (1, 1.1)
+                multiline:False
+                password:True
+                font_size: 28
+
+            Button:
+                id: forgot_pass
+                text: 'Forgot Password'
+                background_color: [0,0,0,0]
+                pos_hint: {"right":1}
+                font_size: 14
+
+
+        Button:
+            text: 'Login'
+            font_size: 24
+            size_hint: [.4,.7]
+            pos_hint: {"center_x":0.5}
+            on_release: root.do_login(login.text, password.text)
